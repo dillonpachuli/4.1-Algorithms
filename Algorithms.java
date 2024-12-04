@@ -16,7 +16,7 @@ public class Algorithms {
         int least = least();
         int sum = sum();
         double mean = mean();
-        int mode = mode();
+        //int mode = mode();
         System.out.println("THIS IS THE START OF THE CODE");
         System.out.println(" ");
         System.out.println("odds: " + odds);
@@ -27,7 +27,7 @@ public class Algorithms {
         System.out.println("least: " + least);
         System.out.println("sum: " + sum);
         System.out.println("mean: " + mean);
-        System.out.println("mode: " + mode);
+        //System.out.println("mode: " + mode);
         s.close();
     }
 
@@ -54,8 +54,10 @@ public class Algorithms {
     public static int twoDigits() throws FileNotFoundException{
         s = new Scanner(f);
         int twoDigits = 0;
+        int num = 0;
         while (s.hasNext()) {
-            if (s.nextInt() > 9 && s.nextInt() < 100)
+            num = s.nextInt();
+            if (num > 9 && num < 100)
                 twoDigits++;
         }
         return twoDigits;
@@ -73,29 +75,22 @@ public class Algorithms {
 
     public static int greatest() throws FileNotFoundException{
         s = new Scanner(f);
-        ArrayList<Integer> nums = new ArrayList<Integer>();
+        int greatest = 0;
         while (s.hasNext()) {
-            nums.add(s.nextInt());
-        }
-        int greatest = nums.get(0);
-        for (int i = 1; i < nums.size(); i++) {
-            if (nums.get(i) > nums.get(i-1)) {
-                greatest = nums.get(i);
+            if (s.nextInt() > greatest) {
+                greatest = s.nextInt();
             }
         }
         return greatest;
     }
 
+
     public static int least() throws FileNotFoundException{
         s = new Scanner(f);
-        ArrayList<Integer> nums = new ArrayList<Integer>();
+        int least = 10000;
         while (s.hasNext()) {
-            nums.add(s.nextInt());
-        }
-        int least = nums.get(0);
-        for (int i = 1; i < nums.size(); i++) {
-            if (nums.get(i) < nums.get(i-1)) {
-                least = nums.get(i);
+            if (s.nextInt() < least) {
+                least = s.nextInt();
             }
         }
         return least;
